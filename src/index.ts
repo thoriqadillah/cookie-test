@@ -7,7 +7,10 @@ const flags = parseFlags(process.argv)
 dotenv.config({ path: flags.env });
 
 const app = express();
-const vw = new Visuwisu(app)
+const vw = new Visuwisu(app, {
+    useDb: false,
+    useMemstore: false,
+})
 
 vw.start()
 vw.shutdown()
